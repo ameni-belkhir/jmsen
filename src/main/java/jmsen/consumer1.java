@@ -33,7 +33,7 @@ public class consumer1 {
 		//Create the Message Consumer from the session to the Topic or Queue
 		MessageConsumer consumer=session.createConsumer(destination,"code = '"+code+"'");
 		//Create JMS Listener form messages
-		consumer.setMessageListener(new MessageListener() {
+		consumer.setMessageListener(new MessageListener(){
 		public void onMessage(Message message) {
 		if (message instanceof TextMessage) {
 		try {
@@ -43,7 +43,12 @@ public class consumer1 {
 		} catch (JMSException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
-		}}}});
+		}}}
+
+		public void onMessage(javax.jms.Message message) {
+			// TODO Auto-generated method stub
+			
+		}});
 		} catch (JMSException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
